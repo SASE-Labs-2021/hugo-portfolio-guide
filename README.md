@@ -3,13 +3,13 @@ See [workshop.pdf](workshop.pdf) for the presentation
 # Motivation
 
 Having a personal website makes you stand out in the sea of other online applications. It's a
-way to introduce yourself and control your image to employers online. It's a convient way to
+way to introduce yourself and control your image to employers online. It's a convenient way to
 host a blog, your résumé, and a portfolio. 
 
 # How
 
 - [Hugo](https://gohugo.io/), a static site generator. It takes a chosen theme and your text files and creates the HTML, CSS, and JavaScript files needed to make a nice-looking website.
-- [GitHub Pages](https://pages.github.com/), a service that allows you to host a website and it's source files for free.
+- [GitHub Pages](https://pages.github.com/), a service that allows you to host a website and its source files for free.
 
 # Why...
 
