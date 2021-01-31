@@ -29,6 +29,15 @@ Our [SASE Labs site](https://SASE-Labs-2021.github.io) was generated with Hugo a
 2. Get familiar with using the Linux, Mac, or Windows terminal. Just knowing how to list the files in the directory and change directory is okay. We will use text commands on the command line to interact with git, GitHub, and Hugo. 
 3. [Install git](https://git-scm.com/downloads). [What is git?](https://github.com/SASE-Labs-2020/tutorials/blob/master/2020-01-30-git-familiar-with-git.md)
 4. [Install Hugo](https://gohugo.io/getting-started/installing/##homebrew-linux)
+  - Use the above link for MacOS or Linux
+  - For Windows, follow [this video](https://youtu.be/G7umPCU-8xc)
+    - Make `Hugo` and `Hugo/bin` folders in your C drive
+    - Download the Windows zip file [here](https://github.com/gohugoio/hugo/releases)
+    - Extract all into your `Hugo/bin` folder
+    - Make sure the executable file is named `hugo` or `hugo.exe`
+    - Hit the Windows key and search for environment variables
+    - Add `C:\Hugo\bin\` to the `Path` environment variable
+    - You should now be able to use the `hugo` command in the Windows terminal
 5. [Pick a theme](https://themes.gohugo.io/tags/portfolio/)
 6. Pick a text editor to use to write your site. I recommend [VSCode](https://code.visualstudio.com/) or [Sublime](https://www.sublimetext.com/).
 
@@ -50,3 +59,44 @@ Use [this guide](https://gohugo.io/hosting-and-deployment/hosting-on-github/) as
 - If you are using Windows, instead of running `./deploy.sh` in the final step, you should run `bash -c './deploy.sh'` instead
 
 This will host your site at `<your-github-username>.github.io`. If you'd like yourself to stand out even more, you could purchase a domain name and [use that name with GitHub Pages](https://docs.github.com/en/github/working-with-github-pages/about-custom-domains-and-github-pages).
+
+# Let's create a Toha site
+
+[Toha](https://themes.gohugo.io/toha/) is a Hugo theme for a portfolio site.
+
+- Clone the starter code
+```
+# the theme is a submodule which refers to another repository
+git clone --recurse-submodules https:///github.com/hugo-toha/hugo-toha.github.io
+```
+- Run the website locally
+```
+# change directories to the code we just cloned
+cd hugo-toha.github.io
+# run the development build
+hugo server -D
+# now type localhost:1313 in your browser's address bar
+```
+- While the local webserver is running, we can change the website files and see the changes affecting the website live! Notice that the `data/` directory has the content for the main page while the `content/` directory has the content for the blog posts. Edit and customize to your desire!
+
+## Deploying the Toha site
+
+- Create an empty Github repository named `<your-github-username>.github.io`
+- Navigate to settings
+![](settings.png)
+- Add GitHub pages
+![](gh-pages.png)
+- Run the following commands
+```
+# link the public/ subdirectory to the repo for your website
+git submodule add -b main https://github.com/<USERNAME>/<USERNAME>.github.io.git public
+# generate the public/ subdirectory
+hugo
+cd public
+# log your changes to git
+git add .
+git commit -m ‘a helpful message about your website changes’
+# push your local changes to GitHub
+git push -u origin master
+```
+- Your website is now live at `<your-github-username>.github.io`!
